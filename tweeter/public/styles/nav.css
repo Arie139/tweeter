@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: end;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  font-family:'Bungee', cursive;
+  font-size: 40px;
+  height: 120px;
+  width:100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 60px;
+};
+
+#fancy-arrow {
+  color:red !important;
+  display: flex !important;
+  justify-content: row !important;
+  flex-direction: end !important;
+}
