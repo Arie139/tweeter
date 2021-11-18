@@ -18,12 +18,14 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -38,12 +40,12 @@
       </div>
       <br>
       <div>
-          <h2 class="name">Your Name</h2>
+          <h2 class="name">Tweedle Dee</h2>
       </div>
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="tweet">
+      <section class="new-tweet">
         <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" rows="1" minlength="1" maxlength="140"></textarea>

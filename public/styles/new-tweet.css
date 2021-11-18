@@ -1,0 +1,33 @@
+button {
+  display:inline-block;
+  justify-content: space-between;
+  color: white;
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+  font-size:15px;
+  padding: 0.2em 0.2em;
+}
+.new-tweet {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+.overCharCount{
+  color:red;
+}
+#tweet-text {
+  width: 100%;
+  border: 0;
+  border-bottom: 6px solid #545149;
+  background: none;
+  resize: none;
+  overflow-y: auto;
+}
+
+.counter {
+  font-family: 'Bungee', cursive;
+  justify-content: space-between;
+  font-size:15px;
+  padding: 0.2em 0.2em;
+}
