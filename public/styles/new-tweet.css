@@ -1,6 +1,7 @@
 button {
   display:inline-block;
   justify-content: space-between;
+  flex-direction: column;
   color: white;
   background-color: #4056A1;
   font-family: 'Bungee', cursive;
@@ -23,6 +24,7 @@ button {
   background: none;
   resize: none;
   overflow-y: auto;
+  outline: none;
 }
 
 .counter {
@@ -30,4 +32,20 @@ button {
   justify-content: space-between;
   font-size:15px;
   padding: 0.2em 0.2em;
+  float: right;
+}
+#tweets {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#error {
+  border: 5px solid black;
+  color: black;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1em;
 }

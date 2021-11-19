@@ -1,21 +1,30 @@
-nav {
+.nav-bar {
   display: flex;
   justify-content: space-between;
   flex-direction: end;
+  align-items: center;
   color: #FFFFFF;
   background-color: #4056A1;
   font-family:'Bungee', cursive;
-  font-size: 40px;
+  font-size: 1.25em;
   height: 120px;
   width:100%;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 60px;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
 };
-
-#fancy-arrow {
+nav .nav-tweet {
+  font-size: 12px;
+}
+.fancy-arrow {
   color:red;
-  display: flex;
-  justify-content: column;
-  flex-direction: center;
+  text-align: center;
+}
+img.profile {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%
 }
