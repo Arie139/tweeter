@@ -3,88 +3,75 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// display errors 
+const displayError = err_msg => {
+$("form").find("#error").text(err_msg).show().slideDown("fast");
+$("form").find("#error").text(err_msg).show().slideUp(6000);
+};
 
-$(document).ready(function() {
+const renderTweets = (tweets) => {
+  for (let tweet of tweets) {
+    const $tweet = createTweetElement(tweet);
+    $("#tweets").prepend($tweet);
+  }
+};
 
-  const renderTweets = tweets => {
-    for (let tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets').prepend($tweet);
-    }
-  };
-
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
-
-  const createTweetElement = function(userTweetObj) {
-    const time = timeago.format(userTweetObj.created_at);;
-    const tweetContainer = $(`
+const createTweetElement = function (userTweetObj) {
+  const {content, user, created_at} = userTweetObj;
+  const {text} = content;
+  const time = timeago.format(created_at);
+  const tweetContainer = $(`
       <article>
         <header>
-          <span class="username"><img class="img" src="${userTweetObj.user.avatars}">${userTweetObj.user.name}</span>
-          <span class="userid">${userTweetObj.user.handle}</span>
+          <span class="username"><img class="img" src="${
+            user.avatars
+          }">${user.name}</span>
+          <span class="userid">${user.handle}</span>
         </header>
-        <p class="tweet-text">${escape(userTweetObj.content.text)}</p>
+        <p class="tweet-text">${$("<p>").text(text).html()}</p>
         <footer>
           <span>${time}</span>
           <span><i class="fas fa-flag"></i>&nbsp;&nbsp;<i class="fas fa-retweet"></i>&nbsp;&nbsp;<i class="fas fa-heart"></i></span>
         </footer>
       </article>
     `);
-    return tweetContainer;
-  };
-  
-  const loadTweets = () => {
-    $.ajax('/tweets', { method: 'GET' })
-    .then(tweetsHTML => {
-      $('#tweets').empty();
-      renderTweets(tweetsHTML);
-    });
-    $('#error').empty();
-    $('#error').hide();
-    $('.tweets').hide();
-  };
+  return tweetContainer;
+};
+const loadTweets = () => {
+  $.ajax("/tweets", { method: "GET" }).then((tweetsHTML) => {
+    $("#tweets").empty();
+    renderTweets(tweetsHTML);
+  });
+  $("#error").empty();
+  $("#error").hide();
+  $(".tweets").hide();
+};
 
-  loadTweets();
+loadTweets();
+const addTweet = function (event) {
+  const $tweetText = $(event.target.text).serialize();
+  $.post("/tweets", $tweetText).then(() => {
+    $("#tweet-text").val("");
+    loadTweets();
+  });
+};
 
-  $("#post-tweet").submit(event => {
-    const charCount = $(event.target.text).serialize().length - 5;
-    $('#error').empty();
-    if ( $('#error').is(":hidden") ) {
-      $('#error').empty();
-    } else {
-      $('#error').hide();
-    }
+$(document).ready(function () {
+  $("#post-tweet").submit((event) => {
     event.preventDefault();
-    if (errorMsg(charCount)) {
-      return $('#error').append(errorMsg(charCount)).slideDown("fast");
-    } else {
-      $('#error').hide();
+    
+    // if content is more than 14 characters     
+    if ($(this).find("textarea").val().length > 140) {
+      const error_msg = "You cannot exceed more than 140 characters";       
+      return displayError(error_msg);
+    }     
+    // if content is empty     
+    if ($(this).find("textarea").val().length < 1) {
+      const error_msg = "You cannot post an empty tweet.";       return displayError(error_msg);
     }
+
     addTweet(event);
     $(this).find(".counter").text(140);
   });
 
-  const addTweet = function(event) {
-    const $tweetText = $(event.target.text).serialize();
-    $.post('/tweets', $tweetText).then(() => {
-      $('#tweet-text').val('');
-      loadTweets();
-    })
-  };
-  
-  const errorMsg = function(num) {
-    let message = "";
-    if (!num)  {
-      message = "Please enter a tweet"
-    } else if (num > 140) {
-      message = "Your tweet is too long, maximum characters is 140";
-    }
-    if (message)  {
-      return `<span><i class="fas fa-exclamation-triangle"></i></span><span>${message}</span><span><i class="fas fa-exclamation-triangle"></i></span>`;
-    }
-  };
 });

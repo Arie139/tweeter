@@ -40,11 +40,11 @@ button {
 }
 
 #error {
-  border: 5px solid black;
-  color: black;
+  /* border: 5px solid black; */
+  color: white;
   background-color: red;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 1em;
