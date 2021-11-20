@@ -1,3 +1,4 @@
+/* styling for header */
 .nav-header {
   display: flex;
   justify-content: center;
@@ -9,6 +10,7 @@
   background-color: rgb(4, 0, 86);
   background-image: url('../images/foggy-birds.png');
 }
+
 h2.name {
   color: white;
 }

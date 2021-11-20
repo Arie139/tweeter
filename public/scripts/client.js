@@ -3,12 +3,14 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 // display errors 
 const displayError = err_msg => {
 $("form").find("#error").text(err_msg).show().slideDown("fast");
 $("form").find("#error").text(err_msg).show().slideUp(6000);
 };
 
+//render tweet
 const renderTweets = (tweets) => {
   for (let tweet of tweets) {
     const $tweet = createTweetElement(tweet);
@@ -16,6 +18,7 @@ const renderTweets = (tweets) => {
   }
 };
 
+//create tweet dynamically to html, while making sure text is safe
 const createTweetElement = function (userTweetObj) {
   const {content, user, created_at} = userTweetObj;
   const {text} = content;
@@ -37,6 +40,8 @@ const createTweetElement = function (userTweetObj) {
     `);
   return tweetContainer;
 };
+
+//load tweets
 const loadTweets = () => {
   $.ajax("/tweets", { method: "GET" }).then((tweetsHTML) => {
     $("#tweets").empty();
@@ -47,7 +52,7 @@ const loadTweets = () => {
   $(".tweets").hide();
 };
 
-loadTweets();
+//create new tweet from textarea
 const addTweet = function (event) {
   const $tweetText = $(event.target.text).serialize();
   $.post("/tweets", $tweetText).then(() => {
@@ -56,6 +61,7 @@ const addTweet = function (event) {
   });
 };
 
+//post tweet while checking that error requirements are not met, if met posts error message
 $(document).ready(function () {
   $("#post-tweet").submit((event) => {
     event.preventDefault();

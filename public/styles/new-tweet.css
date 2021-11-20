@@ -1,3 +1,4 @@
+/* styling new tweets */
 button {
   display:inline-block;
   justify-content: space-between;
@@ -40,7 +41,6 @@ button {
 }
 
 #error {
-  /* border: 5px solid black; */
   color: white;
   background-color: red;
   display: flex;

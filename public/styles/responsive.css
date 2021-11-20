@@ -1,0 +1,26 @@
+
+/* Desktop Styles for sizing*/
+@media only screen and (min-width: 1024px) {
+  body {
+  display: flex;
+  padding-top: 5.625em;
+  }
+
+  .nav-header {
+    margin-top: 1.87em;
+    width: 60%;
+  }
+
+  main {
+    width: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .nav-bar {
+    font-size: 1.5em;
+  }
+
+  #post-tweet {
+    margin-top: 1.87em;
+  }
+}

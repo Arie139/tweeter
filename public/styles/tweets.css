@@ -1,15 +1,16 @@
+/* styling for tweet text */
 article {
   width: 100%;
   background-color: white;
-  border: solid 5px;
+  border: solid .32em;
   margin-bottom: 1em;
   padding: 0.5em;
-  border-radius: 5px;
+  border-radius: .32em;
   background-image: url('../images/foggy-birds.png');
 }
 
 article:hover {
-  box-shadow: 5px 5px #4056A1;
+  box-shadow: .32em .32em #4056A1;
   transition-duration: 0.2s;
 }
 
@@ -28,7 +29,7 @@ footer {
   justify-content: space-between;
   padding: 0.5em 1em 0 1em;
   font-size: small;
-  border-top: solid 5px;
+  border-top: solid .32em;
 }
 
 .userid {
