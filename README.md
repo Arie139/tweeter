@@ -6,7 +6,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 - Desktop 
-https://github.com/Arie139/tweeter/tree/master/docs#:~:text=.%E2%80%8A.-,tweeter-desktop.png,-comments/readme
+![screenshot of desktop](https://github.com/Arie139/tweeter/blob/master/docs/tweeter-desktop.png)
 
 - Tablet/Mobile 
 
