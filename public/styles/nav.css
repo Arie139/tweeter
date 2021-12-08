@@ -6,10 +6,10 @@
   align-items: center;
   color: #FFFFFF;
   background-color: #4056A1;
-  font-family:'Bungee', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 1em;
   height: 120px;
-  width:100%;
+  width: 100%;
   padding-left: 1.5em;
   padding-right: 1.5em;
   position: fixed;
@@ -20,7 +20,7 @@ nav .nav-tweet {
   font-size: 1em;
 }
 .fancy-arrow {
-  color:red;
+  color: red;
   text-align: center;
 }
 img.profile {

@@ -7,11 +7,11 @@ $(document).ready(function() {
     const textLen = $(this).val().length;
     const charRemain = limit - textLen;
     const counter = $(this).closest('form').find('.counter');
-  if (charRemain < 0){
+    if (charRemain < 0){
     counter.addClass('overCharCount');
-  }else {
+    }else {
     counter.removeClass('overCharCount');
-  }
+    }
   counter.text(charRemain);
   })
 });

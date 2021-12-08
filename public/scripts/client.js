@@ -20,8 +20,8 @@ const renderTweets = (tweets) => {
 
 //create tweet dynamically to html, while making sure text is safe
 const createTweetElement = function (userTweetObj) {
-  const {content, user, created_at} = userTweetObj;
-  const {text} = content;
+  const { content, user, created_at } = userTweetObj;
+  const { text } = content;
   const time = timeago.format(created_at);
   const tweetContainer = $(`
       <article>
@@ -51,6 +51,8 @@ const loadTweets = () => {
   $("#error").hide();
   $(".tweets").hide();
 };
+
+loadTweets();
 
 //create new tweet from textarea
 const addTweet = function (event) {
