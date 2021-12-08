@@ -1,12 +1,12 @@
 /* styling new tweets */
 button {
-  display:inline-block;
+  display: inline-block;
   justify-content: space-between;
   flex-direction: column;
   color: white;
   background-color: #4056A1;
   font-family: 'Bungee', cursive;
-  font-size:15px;
+  font-size: 15px;
   padding: 0.2em 0.2em;
 }
 .new-tweet {
@@ -16,7 +16,7 @@ button {
   width: 100%;
 }
 .overCharCount{
-  color:red;
+  color: red;
 }
 #tweet-text {
   width: 100%;
@@ -31,7 +31,7 @@ button {
 .counter {
   font-family: 'Bungee', cursive;
   justify-content: space-between;
-  font-size:15px;
+  font-size: 15px;
   padding: 0.2em 0.2em;
   float: right;
 }
